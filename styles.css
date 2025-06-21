@@ -1,4 +1,19 @@
-/* @font-face declarations */
+/* ==========================================================================
+   Custom Properties
+   ========================================================================== */
+:root {
+  --zinc-950: #09090b;
+  --zinc-900: #18181b;
+  --zinc-100: #f4f4f5;
+  --zinc-200: #e4e4e7;
+  --zinc-300: #d4d4d8;
+  --zinc-400: #a1a1aa;
+  --zinc-500: #71717a;
+}
+
+/* ==========================================================================
+   Font Faces
+   ========================================================================== */
 @font-face {
   font-family: "Inter";
   font-style: normal;
@@ -23,7 +38,9 @@
   src: url("/fonts/Inter-Bold.woff2") format("woff2");
 }
 
-/* reset */
+/* ==========================================================================
+   Reset
+   ========================================================================== */
 *,
 *::before,
 *::after {
@@ -32,10 +49,12 @@
   padding: 0;
 }
 
-/* base */
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
 body {
-  background-color: #09090b; /* zinc-950 */
-  color: #f4f4f5; /* zinc-100 */
+  background-color: var(--zinc-950);
+  color: var(--zinc-100);
   font-family:
     "Inter",
     -apple-system,
@@ -47,9 +66,22 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* shared components */
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+h1,
+h2,
+h3 {
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   Components
+   ========================================================================== */
+
+/* Link */
 .link {
-  color: #f4f4f5;
+  color: var(--zinc-100);
   text-decoration: none;
   transition: opacity 0.2s;
 }
@@ -59,12 +91,14 @@ body {
 }
 
 .link:focus-visible {
-  outline: 2px solid #f4f4f5;
+  outline: 2px solid var(--zinc-100);
   outline-offset: 4px;
   border-radius: 2px;
 }
 
-/* layout utilities */
+/* ==========================================================================
+   Layout
+   ========================================================================== */
 .layout {
   min-height: 100vh;
   display: flex;
@@ -74,27 +108,11 @@ body {
   padding: 2rem 1rem;
 }
 
-/* typography */
-h1,
-h2,
-h3 {
-  font-weight: 700;
-}
+/* ==========================================================================
+   Page Sections
+   ========================================================================== */
 
-/* colors - custom properties for reuse */
-:root {
-  --zinc-950: #09090b;
-  --zinc-900: #18181b;
-  --zinc-100: #f4f4f5;
-  --zinc-200: #e4e4e7;
-  --zinc-300: #d4d4d8;
-  --zinc-400: #a1a1aa;
-  --zinc-500: #71717a;
-}
-
-/* Page components */
-
-/* Hero section - shared by index and 404 */
+/* Hero Section */
 .hero {
   text-align: center;
   max-width: 42rem;
@@ -108,7 +126,7 @@ h3 {
   letter-spacing: 0.01em;
 }
 
-/* Homepage components */
+/* Wordmark */
 .wordmark {
   font-size: clamp(3.5rem, 10vw, 6rem);
   font-weight: 700;
@@ -117,6 +135,7 @@ h3 {
   letter-spacing: -0.02em;
 }
 
+/* Tagline */
 .tagline {
   font-size: clamp(1.5rem, 4vw, 2.25rem);
   color: var(--zinc-200);
@@ -127,7 +146,7 @@ h3 {
   margin-right: auto;
 }
 
-/* Social links */
+/* Social Links */
 .social-links {
   margin-top: 2rem;
   display: flex;
@@ -163,26 +182,9 @@ h3 {
   margin: 0;
 }
 
-/* Responsive adjustments */
-@media (max-width: 640px) {
-  .footer {
-    margin-top: 3rem;
-  }
-  
-  .social-links {
-    gap: 1.25rem;
-  }
-  
-  .social-link {
-    font-size: 1rem;
-  }
-  
-  .copyright {
-    font-size: 0.875rem;
-  }
-}
-
-/* 404 page components */
+/* ==========================================================================
+   Error Page
+   ========================================================================== */
 .error-code {
   font-size: 6rem;
   font-weight: 700;
@@ -200,4 +202,25 @@ h3 {
   font-size: 1.125rem;
   color: var(--zinc-400);
   margin-bottom: 2rem;
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+@media (max-width: 640px) {
+  .footer {
+    margin-top: 3rem;
+  }
+  
+  .social-links {
+    gap: 1.25rem;
+  }
+  
+  .social-link {
+    font-size: 1rem;
+  }
+  
+  .copyright {
+    font-size: 0.875rem;
+  }
 }
