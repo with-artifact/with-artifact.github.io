@@ -68,9 +68,10 @@ body {
 .layout {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 1rem;
+  padding: 2rem 1rem;
 }
 
 /* typography */
@@ -84,8 +85,11 @@ h3 {
 :root {
   --zinc-950: #09090b;
   --zinc-900: #18181b;
-  --zinc-400: #a1a1aa;
   --zinc-100: #f4f4f5;
+  --zinc-200: #e4e4e7;
+  --zinc-300: #d4d4d8;
+  --zinc-400: #a1a1aa;
+  --zinc-500: #71717a;
 }
 
 /* Page components */
@@ -98,23 +102,84 @@ h3 {
 }
 
 .hero .link {
-  font-size: 1.125rem;
+  font-size: 1.375rem;
   font-weight: 500;
   display: inline-block;
+  letter-spacing: 0.01em;
 }
 
 /* Homepage components */
 .wordmark {
-  font-size: 3rem;
+  font-size: clamp(3.5rem, 10vw, 6rem);
   font-weight: 700;
-  color: #f4f4f5; /* zinc-100 */
-  margin-bottom: 1rem;
+  color: var(--zinc-100);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
 }
 
 .tagline {
-  font-size: 1.25rem;
-  color: #f4f4f5; /* zinc-100 */
-  margin-bottom: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  color: var(--zinc-200);
+  margin-bottom: 3rem;
+  font-weight: 400;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Social links */
+.social-links {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.social-link {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: var(--zinc-300);
+  transition: color 0.2s;
+}
+
+.social-link:hover {
+  color: var(--zinc-100);
+}
+
+/* Footer */
+.footer {
+  margin-top: calc(4rem + 1.375rem + 0.5rem);
+  text-align: center;
+}
+
+.footer .social-links {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.copyright {
+  font-size: 1rem;
+  color: var(--zinc-500);
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .footer {
+    margin-top: 3rem;
+  }
+  
+  .social-links {
+    gap: 1.25rem;
+  }
+  
+  .social-link {
+    font-size: 1rem;
+  }
+  
+  .copyright {
+    font-size: 0.875rem;
+  }
 }
 
 /* 404 page components */
