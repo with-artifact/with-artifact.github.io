@@ -1,61 +1,82 @@
-/* ==========================================================================
-   Custom Properties
-   ========================================================================== */
 :root {
+  /* Colors */
   --zinc-950: #09090b;
-  --zinc-900: #18181b;
   --zinc-100: #f4f4f5;
   --zinc-200: #e4e4e7;
   --zinc-300: #d4d4d8;
   --zinc-400: #a1a1aa;
   --zinc-500: #71717a;
+
+  /* Typography */
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue",
+    Arial, sans-serif;
+
+  /* Spacing - 1.5rem (24px) base unit */
+  --space-2: 0.5rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
 }
 
-/* Font faces removed - using system fonts for better performance */
-
-/* ==========================================================================
-   Reset
-   ========================================================================== */
-*,
-*::before,
-*::after {
+/* Base */
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* ==========================================================================
-   Base Styles
-   ========================================================================== */
 body {
   background-color: var(--zinc-950);
   color: var(--zinc-100);
-  font-family:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue",
-    Arial, sans-serif;
+  font-family: var(--font-sans);
+  font-size: 1rem;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ==========================================================================
-   Typography
-   ========================================================================== */
-h1,
-h2,
-h3 {
-  font-weight: 700;
+/* Layout */
+.layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-16) var(--space-8);
+  min-height: 100vh;
 }
 
-/* ==========================================================================
-   Components
-   ========================================================================== */
+.main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 42rem;
+}
 
-/* Link */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  text-align: center;
+}
+
+.footer {
+  text-align: center;
+  padding-bottom: var(--space-4);
+}
+
+/* Components */
 .link {
   color: var(--zinc-100);
   text-decoration: none;
-  transition: opacity 0.2s;
+  transition-property: opacity;
+  transition-duration: 200ms;
 }
 
 .link:hover {
@@ -65,130 +86,88 @@ h3 {
 .link:focus-visible {
   outline: 2px solid var(--zinc-100);
   outline-offset: 4px;
-  border-radius: 2px;
+  border-radius: 0.125rem;
 }
 
-/* ==========================================================================
-   Layout
-   ========================================================================== */
-.layout {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 4rem 2rem;
-  min-height: 100vh;
-}
-
-/* ==========================================================================
-   Page Sections
-   ========================================================================== */
-
-/* Hero Section */
-.hero {
-  text-align: center;
-  max-width: 42rem;
-  margin: auto 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* Hero Content */
-.hero-content {
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-  justify-content: center;
-}
-
-/* Logo */
 .logo {
-  width: 240px;
+  width: 15rem;
   height: auto;
-  flex-shrink: 0;
 }
 
-/* Hero Text */
-.hero-text {
-  text-align: left;
-}
-
-/* Brand Name */
 .brand-name {
   font-size: 3rem;
   font-weight: 700;
-  color: var(--zinc-100);
-  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
   letter-spacing: -0.02em;
+  margin-bottom: var(--space-6);
 }
 
-/* Tagline */
 .tagline {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   color: var(--zinc-200);
-  margin: 0;
-  font-weight: 400;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
-/* Social Links */
 .social-links {
-  margin-top: 2rem;
   display: flex;
-  gap: 1.5rem;
+  gap: var(--space-6);
   justify-content: center;
+  margin-bottom: var(--space-4);
 }
 
 .social-link {
-  font-size: 1.125rem;
-  font-weight: 400;
+  font-size: 1rem;
   color: var(--zinc-300);
-  transition: color 0.2s;
+  transition-property: color;
+  transition-duration: 200ms;
 }
 
 .social-link:hover {
   color: var(--zinc-100);
 }
 
-/* Footer */
-.footer {
-  margin-top: auto;
-  text-align: center;
-}
-
-.footer .social-links {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
 .copyright {
-  font-size: 1.125rem;
+  font-size: 1rem;
   color: var(--zinc-500);
-  margin: 0;
 }
 
-/* ==========================================================================
-   Error Page
-   ========================================================================== */
-.error-code {
+/* Utils */
+
+/* Typography */
+.text-lg {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+.text-8xl {
   font-size: 6rem;
+  line-height: 1;
+}
+
+.font-bold {
   font-weight: 700;
-  margin-bottom: 1rem;
+}
+
+/* Colors */
+.text-zinc-400 {
+  color: var(--zinc-400);
+}
+
+/* Spacing */
+.mb-4 {
+  margin-bottom: var(--space-6);
+}
+
+.mb-8 {
+  margin-bottom: var(--space-12);
+}
+
+/* Opacity */
+.opacity-50 {
   opacity: 0.5;
 }
-
-.error-message {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.error-description {
-  font-size: 1.125rem;
-  color: var(--zinc-400);
-  margin-bottom: 2rem;
-}
-
-/* Media queries removed - using fixed sizes for simplicity */
