@@ -11,32 +11,7 @@
   --zinc-500: #71717a;
 }
 
-/* ==========================================================================
-   Font Faces
-   ========================================================================== */
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-  src: url("/fonts/InterVariable.woff2") format("woff2-variations");
-}
-
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("/fonts/Inter-Medium.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("/fonts/Inter-Bold.woff2") format("woff2");
-}
+/* Font faces removed - using system fonts for better performance */
 
 /* ==========================================================================
    Reset
@@ -56,11 +31,8 @@ body {
   background-color: var(--zinc-950);
   color: var(--zinc-100);
   font-family:
-    "Inter",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue",
+    Arial, sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -100,12 +72,12 @@ h3 {
    Layout
    ========================================================================== */
 .layout {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1rem;
+  padding: 4rem 2rem;
+  min-height: 600px;
 }
 
 /* ==========================================================================
@@ -126,18 +98,20 @@ h3 {
   letter-spacing: 0.01em;
 }
 
-/* Wordmark */
-.wordmark {
-  font-size: clamp(3.5rem, 10vw, 6rem);
-  font-weight: 700;
-  color: var(--zinc-100);
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.02em;
+/* Wordmark - removed since we're using logo */
+
+/* Logo */
+.wordmark.logo {
+  width: 320px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Tagline */
 .tagline {
-  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-size: 1.75rem;
   color: var(--zinc-200);
   margin-bottom: 3rem;
   font-weight: 400;
@@ -204,23 +178,4 @@ h3 {
   margin-bottom: 2rem;
 }
 
-/* ==========================================================================
-   Media Queries
-   ========================================================================== */
-@media (max-width: 640px) {
-  .footer {
-    margin-top: 3rem;
-  }
-  
-  .social-links {
-    gap: 1.25rem;
-  }
-  
-  .social-link {
-    font-size: 1rem;
-  }
-  
-  .copyright {
-    font-size: 0.875rem;
-  }
-}
+/* Media queries removed - using fixed sizes for simplicity */
