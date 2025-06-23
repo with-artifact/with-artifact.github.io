@@ -1,7 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&amp;display=swap');
-  </style>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="32" height="32" rx="6" fill="#09090b"/>
-  <text x="16" y="24" font-family="Inter, sans-serif" font-size="24" font-weight="700" fill="#f4f4f5" text-anchor="middle">A</text>
+  <g transform="translate(16, 16) scale(0.0267, 0.0267) translate(-600, -600)">
+    <path d="M679.667 670.113L705.635 739.36H467.597L401.812 922H321.312L550.254 297.964L584.452 408.704L491.834 670.113H679.667Z" fill="#f4f4f5"/>
+    <path d="M558.484 278H638.984L874.425 922H793.925L558.484 278Z" fill="#f4f4f5"/>
+    <path d="M396.521 670.085L372.285 739.332L306.5 921.972H226L475.228 278.966H542.848L396.521 670.085Z" fill="#f4f4f5"/>
+    <path d="M657.48 278H737.98L973.421 922H892.921L657.48 278Z" fill="#f4f4f5"/>
+  </g>
 </svg>
