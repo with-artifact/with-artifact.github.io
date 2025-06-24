@@ -1,88 +1,114 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-full">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      With Artifact - Make lasting artifacts
-    </title>
-    <meta
-      name="description"
-      content="Make lasting artifacts"
-    />
+    <title>With Artifact - Make lasting artifacts</title>
+    <meta name="description" content="Make lasting artifacts" />
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://withartifact.io/" />
 
     <!-- Open Graph -->
     <meta property="og:title" content="With Artifact" />
-    <meta
-      property="og:description"
-      content="Make lasting artifacts"
-    />
+    <meta property="og:description" content="Make lasting artifacts" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" href="/favicon.ico" />
     <link rel="stylesheet" href="/styles.css" />
   </head>
-  <body>
-    <main class="layout">
-      <section class="main">
-        <div class="main-content">
-          <svg
-            class="logo"
-            width="240"
-            height="165"
-            viewBox="0 0 748 646"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M464 393.113L488.5 462.36H244.285L178.5 645H98L326.942 20.964L364.5 121L268.521 393.113H464Z"
-              fill="white"
-              stroke="white"
-            />
-            <path
-              d="M335.172 1H415.672L651.113 645H570.613L335.172 1Z"
-              fill="white"
-              stroke="white"
-            />
-            <path
-              d="M171.521 393.085L147.285 462.332L81.5 644.972H1L250.228 1.96594H317.848L171.521 393.085Z"
-              fill="white"
-              stroke="white"
-            />
-            <path
-              d="M431 1H511.5L746.941 645H666.441L431 1Z"
-              fill="white"
-              stroke="white"
-            />
-          </svg>
-          <div class="main-text">
-            <h1 class="brand-name">WITH ARTIFACT</h1>
-            <p class="tagline">
+  <body class="h-full bg-zinc-950 text-zinc-100 antialiased">
+    <!-- Main container with flex for footer positioning -->
+    <div class="flex min-h-full flex-col">
+      <!-- Hero Section -->
+      <main class="flex flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+        <div class="mx-auto w-full max-w-2xl">
+          <!-- Logo -->
+          <div class="flex justify-center">
+            <svg
+              class="h-24 w-auto text-white sm:h-32 lg:h-40"
+              width="240"
+              height="165"
+              viewBox="0 0 748 646"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M464 393.113L488.5 462.36H244.285L178.5 645H98L326.942 20.964L364.5 121L268.521 393.113H464Z"
+                fill="currentColor"
+                stroke="currentColor"
+              />
+              <path
+                d="M335.172 1H415.672L651.113 645H570.613L335.172 1Z"
+                fill="currentColor"
+                stroke="currentColor"
+              />
+              <path
+                d="M171.521 393.085L147.285 462.332L81.5 644.972H1L250.228 1.96594H317.848L171.521 393.085Z"
+                fill="currentColor"
+                stroke="currentColor"
+              />
+              <path
+                d="M431 1H511.5L746.941 645H666.441L431 1Z"
+                fill="currentColor"
+                stroke="currentColor"
+              />
+            </svg>
+          </div>
+
+          <!-- Brand Text -->
+          <div class="mt-8 text-center sm:mt-12">
+            <h1
+              class="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
+            >
+              WITH ARTIFACT
+            </h1>
+            <p
+              class="mt-4 text-lg text-zinc-300 sm:mt-6 sm:text-xl lg:text-2xl"
+            >
               Make lasting artifacts
             </p>
           </div>
         </div>
-      </section>
-      <footer class="footer">
-        <div class="social-links">
-          <a href="https://github.com/with-artifact" class="link social-link"
-            >github</a
-          >
-          <a
-            href="https://linkedin.com/company/withartifact"
-            class="link social-link"
-            >linkedin</a
-          >
-          <a href="https://x.com/withartifact" class="link social-link">x</a>
-          <a href="mailto:hello@withartifact.io" class="link social-link"
-            >hello</a
-          >
+      </main>
+
+      <!-- Footer -->
+      <footer class="mt-auto">
+        <div class="mx-auto max-w-7xl px-6 py-8 lg:px-8">
+          <!-- Social Links -->
+          <nav class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+            <a
+              href="https://github.com/with-artifact"
+              class="text-zinc-400 transition hover:text-zinc-100"
+            >
+              github
+            </a>
+            <a
+              href="https://linkedin.com/company/withartifact"
+              class="text-zinc-400 transition hover:text-zinc-100"
+            >
+              linkedin
+            </a>
+            <a
+              href="https://x.com/withartifact"
+              class="text-zinc-400 transition hover:text-zinc-100"
+            >
+              x
+            </a>
+            <a
+              href="mailto:hello@withartifact.io"
+              class="text-zinc-400 transition hover:text-zinc-100"
+            >
+              hello
+            </a>
+          </nav>
+
+          <!-- Copyright -->
+          <p class="mt-4 text-center text-sm text-zinc-500">
+            © 2025 With Artifact. All rights reserved.
+          </p>
         </div>
-        <p class="copyright">© 2025 With Artifact. All rights reserved.</p>
       </footer>
-    </main>
+    </div>
   </body>
 </html>
