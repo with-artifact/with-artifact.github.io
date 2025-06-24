@@ -171,3 +171,28 @@ body {
 .opacity-50 {
   opacity: 0.5;
 }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .layout {
+    padding: var(--space-8) var(--space-4);
+  }
+
+  .logo {
+    width: 12rem;
+    max-width: calc(100vw - var(--space-8));
+  }
+
+  .brand-name {
+    font-size: 2rem;
+  }
+
+  .tagline {
+    font-size: 1.25rem;
+  }
+
+  .social-links {
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+}
