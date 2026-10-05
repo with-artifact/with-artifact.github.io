@@ -166,9 +166,17 @@ svg {
   opacity: 0.2;
 }
 
+.outline {
+  outline-style: solid;
+  outline-width: 1px;
+}
+
 /* Colors */
 .bg-zinc-950 {
   background-color: #09090b;
+}
+.outline-zinc-950 {
+  outline-color: #09090b;
 }
 .text-zinc-100 {
   color: #f4f4f5;
