@@ -1,5 +1,4 @@
 /* Tailwind CSS Base + Utilities */
-/* This is a production-ready subset of Tailwind utilities used in the site */
 
 /* CSS Reset */
 *,
@@ -62,6 +61,9 @@ svg {
 }
 .h-32 {
   height: 8rem;
+}
+.h-28 {
+  height: 7rem;
 }
 .min-h-full {
   min-height: 100%;
