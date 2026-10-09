@@ -60,6 +60,9 @@ svg {
 .h-20 {
   height: 5rem;
 }
+.h-32 {
+  height: 8rem;
+}
 .min-h-full {
   min-height: 100%;
 }
