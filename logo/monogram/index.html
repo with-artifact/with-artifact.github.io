@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<title>WA Monogram</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single column read top to bottom; the derivation as a three-step strip, then the system, then sizes. */
+:root{
+  --bg:#fafafa; --panel:#ffffff; --line:#e4e4e7; --fg:#09090b; --muted:#52525b; --faint:#a1a1aa;
+  --site-bg:#09090b; --site-fg:#f4f4f5; --paper:#fafafa; --paper-ink:#09090b; --cut:#C0362C; --measure:#38bdf8;
+  --sans:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#09090b; --panel:#111114; --line:#27272a; --fg:#f4f4f5; --muted:#a1a1aa; --faint:#71717a; color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#09090b; --panel:#111114; --line:#27272a; --fg:#f4f4f5; --muted:#a1a1aa; --faint:#71717a; color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.6 var(--sans)}
+.wrap{max-width:1080px;margin:0 auto;padding-block:52px 80px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:56px}
+header{display:grid;gap:12px}
+.eyebrow{font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(30px,5vw,44px);line-height:1.08;font-weight:700;letter-spacing:-.025em;margin:0;text-wrap:balance}
+h2{font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0}
+p{margin:0;color:var(--muted);max-width:64ch}
+p strong{color:var(--fg);font-weight:500}
+.mono{font-family:var(--mono);font-size:.92em}
+section{display:grid;gap:16px}
+.hero{background:var(--site-bg);border-radius:14px;padding:clamp(40px,8vw,88px) 24px;display:grid;place-items:center;border:1px solid var(--line)}
+.hero svg{width:min(560px,100%);height:auto;display:block}
+.on{fill:var(--site-fg)}
+.paper .on{fill:var(--paper-ink)}
+.cut{fill:var(--cut)}
+.dm{stroke:var(--measure);stroke-width:9;fill:none}
+.dt{fill:var(--measure);font:500 96px var(--mono)}
+.steps{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);gap:12px;align-items:start}
+.step{display:grid;gap:10px;min-width:0}
+.tile{background:var(--site-bg);border-radius:10px;padding:26px 18px;display:grid;place-items:center;border:1px solid var(--line)}
+.tile svg{width:100%;height:auto;display:block}
+.step .n{font-family:var(--mono);font-size:11px;color:var(--faint)}
+.step b{font-size:15px;font-weight:600}
+.step p{font-size:13.5px;line-height:1.5}
+.arrow{align-self:center;margin-top:-70px;color:var(--faint);font-size:22px}
+@media (max-width:760px){.steps{grid-template-columns:1fr}.arrow{display:none}}
+.sys{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.card{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel);display:grid}
+.card .art{display:grid;grid-template-columns:1fr 1fr}
+.card .art>div{display:grid;place-items:center;padding:34px 18px}
+.card .art .dark{background:var(--site-bg)}
+.card .art .paper{background:var(--paper)}
+.card .art svg{height:64px;width:auto;max-width:100%;display:block}
+.card .meta{padding:14px 16px;display:grid;gap:3px;border-top:1px solid var(--line)}
+.card .meta b{font-size:15px;font-weight:600}
+.card .meta span{font-size:13.5px;color:var(--muted);line-height:1.5}
+.tag{justify-self:start;font-family:var(--mono);font-size:11px;padding:2px 8px;border:1px solid var(--line);border-radius:99px;color:var(--muted);margin-bottom:4px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.facts div{background:var(--panel);padding:14px 16px;display:grid;gap:2px}
+.facts b{font-family:var(--mono);font-weight:500;font-size:19px;font-variant-numeric:tabular-nums}
+.facts span{font-size:13px;color:var(--muted)}
+.ramp{background:var(--site-bg);border:1px solid var(--line);border-radius:12px;padding:30px 26px;display:flex;flex-wrap:wrap;align-items:flex-end;gap:26px 40px}
+.ramp figure{margin:0;display:grid;gap:8px;justify-items:start}
+.ramp svg{display:block;width:auto}
+.ramp figcaption{font-family:var(--mono);font-size:11px;color:#71717a}
+.reads{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px}
+.read{border-top:2px solid var(--line);padding-top:12px;display:grid;gap:4px}
+.read.primary{border-top-color:var(--fg)}
+.read b{font-size:22px;font-weight:700;letter-spacing:-.01em}
+.read span{font-size:13.5px;color:var(--muted)}
+.read .k{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.04em}
+</style>
+
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <!-- Inter Bold A, crossbar removed: the only source shape -->
+  <path id="L" d="M0 1490H337L567 771C612 621 656 444 706 239C758 442 805 618 853 771L1092 1490H1431L909 0H509Z"/>
+  <!-- V/A monogram: V is the A rotated 180°, slash is the A's left leg as an even bar -->
+  <g id="VA"><use href="#L" transform="translate(1431 1490) scale(-1 -1)"/><path d="M1274 1490H1611L2120 0H1783Z"/><use href="#L" x="1963"/></g>
+  <!-- /A compact mark: the monogram cropped at the slash, so it reuses #VA with a viewBox starting at 1274 -->
+</defs></svg>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">With Artifact · identity</span>
+    <h1>The WA monogram</h1>
+    <p>Inter Bold "WA" with two strokes taken out, one from the W and the A's crossbar, then every stroke aligned to the A's angles. What's left is a W and an A that share one rhythm.</p>
+  </header>
+
+  <div class="hero"><svg viewBox="0 0 3394 1490" role="img" aria-label="WA monogram"><use href="#VA" class="on"/></svg></div>
+
+  <section>
+    <h2>How it's made</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="tile"><svg viewBox="-1292 0 3409 1490" role="img" aria-label="WA set in Inter Bold">
+          <path class="on" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H334L735 0H401L228 733C198 869 172 1029 148 1181C121 1029 94 869 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"/>
+          <path class="on" d="M686 1490H1023L1134 1144H1663L1778 1490H2117L1595 0H1195ZM1210 905 1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1584 905Z"/>
+        </svg></div>
+        <span class="n">01</span><b>Set "WA" in Inter Bold</b>
+        <p>Inter's own outlines and its own W–A spacing.</p>
+      </div>
+      <span class="arrow" aria-hidden="true">→</span>
+      <div class="step">
+        <div class="tile"><svg viewBox="-1292 0 3409 1490" role="img" aria-label="WA with the W's third stroke and the A's crossbar marked for removal">
+          <path class="on" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H334L735 0H401L228 733C198 869 172 1029 148 1181C121 1029 94 869 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"/>
+          <path class="on" d="M686 1490H1023L1134 1144H1663L1778 1490H2117L1595 0H1195ZM1210 905 1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1584 905Z"/>
+          <path class="cut" d="M-278 0H-120L61 733C94 869 121 1029 148 1181L160 1490H-14L-212 728C-239 621 -259 500 -280 372Z"/>
+          <path class="cut" d="M1134 1144H1663L1584 905H1210Z"/>
+        </svg></div>
+        <span class="n">02</span><b>Take out two strokes</b>
+        <p>The W's third stroke and the A's crossbar, shown in red.</p>
+      </div>
+      <span class="arrow" aria-hidden="true">→</span>
+      <div class="step">
+        <div class="tile"><svg viewBox="0 0 3394 1490" role="img" aria-label="WA monogram"><use href="#VA" class="on"/></svg></div>
+        <span class="n">03</span><b>Align to the A</b>
+        <p>The V is the A turned upside down. The slash is the A's left leg as an even bar, at the same 18.86° and the same 337 width. Every top space is 352.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Geometry</h2>
+    <div class="hero" style="padding-block:clamp(40px,7vw,72px)"><svg viewBox="0 -240 3394 1770" role="img" aria-label="Monogram with its two equal top spaces measured">
+      <use href="#VA" class="on"/>
+      <path class="dm" d="M1431 -60H1783M1431 -100v80M1783 -100v80"/><text class="dt" x="1607" y="-110" text-anchor="middle">352</text>
+      <path class="dm" d="M2120 -60H2472M2120 -100v80M2472 -100v80"/><text class="dt" x="2296" y="-110" text-anchor="middle">352</text>
+    </svg></div>
+    <div class="facts">
+      <div><b>1</b><span>Source shape: Inter Bold's A without its crossbar</span></div>
+      <div><b>337</b><span>Slash width, the A's leg at the baseline</span></div>
+      <div><b>18.86°</b><span>Every <span class="mono">/</span>, the A's left leg</span></div>
+      <div><b>19.31°</b><span>Every <span class="mono">\</span>, the A's right leg</span></div>
+      <div><b>352</b><span>Both top spaces, constant to the baseline</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The system</h2>
+    <div class="sys">
+      <div class="card">
+        <div class="art"><div class="dark"><svg viewBox="0 0 3394 1490" role="img" aria-label="Monogram on dark"><use href="#VA" class="on"/></svg></div>
+          <div class="paper"><svg viewBox="0 0 3394 1490" role="img" aria-label="Monogram on light"><use href="#VA" class="on"/></svg></div></div>
+        <div class="meta"><span class="tag">primary</span><b>Monogram · WA</b><span>The site header, splash screens, print. Anywhere with room for the full initials.</span></div>
+      </div>
+      <div class="card">
+        <div class="art"><div class="dark"><svg viewBox="1274 0 2120 1490" role="img" aria-label="Compact mark on dark"><use href="#VA" class="on"/></svg></div>
+          <div class="paper"><svg viewBox="1274 0 2120 1490" role="img" aria-label="Compact mark on light"><use href="#VA" class="on"/></svg></div></div>
+        <div class="meta"><span class="tag">compact</span><b>Mark · /A</b><span>Social avatars, the favicon, app icons. It's the monogram with the V cropped off, an exact crop with nothing redrawn.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>At size</h2>
+    <div class="ramp" id="ramp"></div>
+  </section>
+
+  <section>
+    <h2>Readings</h2>
+    <div class="reads">
+      <div class="read primary"><span class="k">PRIMARY</span><b>WA</b><span>A monogram of the initials. This is how it's presented.</span></div>
+      <div class="read"><span class="k">SECOND LOOK</span><b>w/ A</b><span>The V and slash work as an abstract "w/", shorthand for "with". So it reads as With Artifact.</span></div>
+      <div class="read"><span class="k">BONUS</span><b>via A</b><span>Read as letters it's "VIA", which means much the same as "with".</span></div>
+    </div>
+  </section>
+</div>
+
+<script>
+const ramp=document.getElementById("ramp");
+[[96,"monogram"],[96,"mark"],[48,"monogram"],[48,"mark"],[24,"monogram"],[24,"mark"],[16,"mark"]].forEach(([h,k])=>{
+  const vb=k==="monogram"?"0 0 3394 1490":"1274 0 2120 1490", id="#VA";
+  const f=document.createElement("figure");
+  f.innerHTML=`<svg viewBox="${vb}" style="height:${h}px" role="img" aria-label="${k} at ${h}px"><use href="${id}" style="fill:#f4f4f5"/></svg><figcaption>${k} · ${h}px</figcaption>`;
+  ramp.appendChild(f);
+});
+</script>
+
+</body>
+</html>

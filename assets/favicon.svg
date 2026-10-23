@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="With Artifact">
   <rect width="32" height="32" rx="6" fill="#09090b"/>
-  <g transform="translate(4.160 7.667) scale(0.011186)">
-    <path fill="#f4f4f5" d="M0 1490H334L843 0H509Z"/>
-    <path fill="#f4f4f5" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/>
+  <g transform="translate(4.143 7.667) scale(0.011186)">
+    <path fill="#f4f4f5" d="M0 1490H337L846 0H509Z"/>
+    <path fill="#f4f4f5" d="M689 1490H1026L1256 771C1301 621 1345 444 1395 239C1447 442 1494 618 1542 771L1781 1490H2120L1598 0H1198Z"/>
   </g>
 </svg>
