@@ -5,385 +5,179 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-<title>WA Logo System</title>
+<title>WA Monogram</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: one narrow column; a large construction plate, then a grid of variant plates, then a size ramp. */
+/* Layout: a single column read top to bottom; the derivation as a three-step strip, then the system, then sizes. */
 :root{
-  --bg:#09090b; --panel:#111114; --line:#27272a; --fg:#f4f4f5; --muted:#a1a1aa; --faint:#52525b;
-  --ghost:#3f3f46; --mark:#f59e0b; --mark2:#38bdf8;
-  --site-bg:#09090b; --site-fg:#f4f4f5; --shade:#52525b;
-  --paper:#fafafa; --paper-ink:#09090b; --paper-shade:#d4d4d8;
+  --bg:#fafafa; --panel:#ffffff; --line:#e4e4e7; --fg:#09090b; --muted:#52525b; --faint:#a1a1aa;
+  --site-bg:#09090b; --site-fg:#f4f4f5; --paper:#fafafa; --paper-ink:#09090b; --cut:#C0362C; --measure:#38bdf8;
   --sans:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
-  color-scheme:dark;
 }
-@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
-  --bg:#fafafa; --panel:#ffffff; --line:#e4e4e7; --fg:#09090b; --muted:#52525b; --faint:#a1a1aa;
-  --ghost:#d4d4d8; --mark:#c2410c; --mark2:#0369a1; color-scheme:light}}
-:root[data-theme="light"]{
-  --bg:#fafafa; --panel:#ffffff; --line:#e4e4e7; --fg:#09090b; --muted:#52525b; --faint:#a1a1aa;
-  --ghost:#d4d4d8; --mark:#c2410c; --mark2:#0369a1; color-scheme:light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#09090b; --panel:#111114; --line:#27272a; --fg:#f4f4f5; --muted:#a1a1aa; --faint:#71717a; color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#09090b; --panel:#111114; --line:#27272a; --fg:#f4f4f5; --muted:#a1a1aa; --faint:#71717a; color-scheme:dark}
 body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.6 var(--sans)}
-.wrap{max-width:1040px;margin:0 auto;padding-block:48px 72px;
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
-  display:grid;gap:56px}
-header{display:grid;gap:10px;max-width:68ch}
-h1{font-size:30px;line-height:1.15;font-weight:700;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.wrap{max-width:1080px;margin:0 auto;padding-block:52px 80px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:56px}
+header{display:grid;gap:12px}
+.eyebrow{font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(30px,5vw,44px);line-height:1.08;font-weight:700;letter-spacing:-.025em;margin:0;text-wrap:balance}
 h2{font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0}
-p{margin:0;color:var(--muted)}
+p{margin:0;color:var(--muted);max-width:64ch}
 p strong{color:var(--fg);font-weight:500}
-code,.mono{font-family:var(--mono);font-size:12.5px}
-section{display:grid;gap:18px}
-.plate{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
-.plate svg{display:block;width:100%;height:auto}
-.construct{padding:24px}
-.legend{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:13px;color:var(--muted)}
-.legend span{display:inline-flex;align-items:center;gap:8px}
-.sw{width:18px;height:10px;border-radius:2px;display:inline-block}
-.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
-.fact{background:var(--panel);padding:14px 16px;display:grid;gap:2px;min-width:0}
-.fact b{font-family:var(--mono);font-weight:500;font-size:18px;font-variant-numeric:tabular-nums}
-.fact span{font-size:13px;color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
-.card{display:grid;grid-template-rows:auto 1fr auto;min-width:0}
-.card .art{padding:28px 32px;border-bottom:1px solid var(--line)}
-.card .txt{padding:14px 16px 4px;display:grid;gap:4px;align-content:start}
-.card h3{margin:0;font-size:15px;font-weight:600}
-.card .txt p{font-size:13.5px;line-height:1.5}
-.card .foot{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 16px 14px;font-size:12px;color:var(--faint)}
-.tag{font-family:var(--mono);font-size:11px;padding:2px 7px;border:1px solid var(--line);border-radius:99px;color:var(--muted)}
-.tag.cur{border-color:var(--mark);color:var(--mark)}
-button{font:500 12px var(--sans);color:var(--fg);background:transparent;border:1px solid var(--line);border-radius:6px;padding:5px 10px;cursor:pointer}
-button:hover{border-color:var(--muted)}
-button:focus-visible{outline:2px solid var(--mark2);outline-offset:2px}
-.ramp{display:flex;flex-wrap:wrap;align-items:flex-end;gap:28px 40px;padding:28px 24px}
-.ramp figure{margin:0;display:grid;gap:10px;justify-items:start}
-.ramp figcaption{font-family:var(--mono);font-size:11px;color:var(--faint)}
-.fav{display:flex;gap:28px;align-items:flex-end;flex-wrap:wrap}
-.paths{display:grid;gap:10px}
-pre{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto;white-space:pre-wrap;word-break:break-all;color:var(--muted);font-family:var(--mono);font-size:12px;line-height:1.55}
-.ink{fill:var(--fg)}
-.ghost{fill:none;stroke:var(--ghost);stroke-width:6}
-.ghostfill{fill:var(--ghost);opacity:.55}
-.cut{fill:var(--mark);opacity:.85}
-.guide{stroke:var(--faint);stroke-width:3;stroke-dasharray:14 12;fill:none}
-.dim{stroke:var(--mark2);stroke-width:5;fill:none}
-.lbl{fill:var(--mark2);font:500 46px var(--mono)}
-.lblm{fill:var(--muted);font:400 40px var(--mono)}
-.node{fill:var(--mark2)}
-.site{background:var(--site-bg);border:1px solid var(--line);border-radius:10px;padding:48px 40px;display:grid;place-items:center}
-.site svg{width:100%;max-width:640px;height:auto;display:block}
-.site .on{fill:var(--site-fg)}
-.site .off{fill:var(--shade);transition:fill .2s}
-.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
-.pair figure{margin:0;display:grid;gap:10px;min-width:0}
-.pair figcaption{font-size:13.5px;color:var(--muted);line-height:1.5}
-.pair figcaption b{color:var(--fg);font-weight:600}
-.shades{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;color:var(--muted)}
-.shades button{display:inline-flex;align-items:center;gap:8px}
-.shades button[aria-pressed="true"]{border-color:var(--fg)}
-.chip{width:14px;height:14px;border-radius:3px;border:1px solid var(--line)}
-@media (prefers-reduced-motion: reduce){.site .off{transition:none}}
-.sys{display:grid;gap:16px}
-.ver{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--panel)}
-.ver .site{border:0;border-radius:0;padding:44px 32px}
-.ver .site svg{height:clamp(110px,22vw,200px);width:auto;max-width:100%}
-.ver .meta{padding:20px 22px;display:grid;gap:8px;align-content:start;min-width:0;border-right:1px solid var(--line)}
-.ver .meta .k{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
-.ver h3{margin:0;font-size:17px;font-weight:600}
-.ver .meta p{font-size:13.5px;line-height:1.55}
-.ver .meta .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
-@media (max-width:720px){.ver{grid-template-columns:1fr}.ver .meta{border-right:0;border-bottom:1px solid var(--line)}}
-.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
-.rules div{background:var(--panel);padding:12px 16px;display:grid;gap:2px}
-.rules b{font-family:var(--mono);font-weight:500;font-size:17px}
-.rules span{font-size:13px;color:var(--muted)}
-.strip{display:flex;flex-wrap:wrap;align-items:flex-end;gap:24px 36px;padding:28px 24px}
-.strip.dark{background:var(--site-bg)}
-.strip.light{background:var(--paper)}
-.strip svg{display:block;width:auto}
-.strip.dark .on{fill:var(--site-fg)} .strip.dark .off{fill:var(--shade)}
-.strip.light .on{fill:var(--paper-ink)} .strip.light .off{fill:var(--paper-shade)}
-.strips{border:1px solid var(--line);border-radius:10px;overflow:hidden}
-.xb[hidden]{display:none}
-.flows{display:grid;gap:16px}
-.flow{border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:18px;display:grid;gap:14px;min-width:0}
-.fhead{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline}
-.fhead b{font-size:15px;font-weight:600}
-.fhead span{font-size:13.5px;color:var(--muted)}
-.frow{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:10px}
-.fr{margin:0;display:grid;gap:8px;min-width:0}
-.fbox{background:var(--site-bg);border-radius:8px;padding:18px 14px}
-.fbox svg{display:block;width:100%;height:auto}
-.fbox .on{fill:var(--site-fg)} .fbox .off{fill:var(--shade)}
-.fr figcaption{font-size:12.5px;color:var(--muted)}
-.fr figcaption .mono{color:var(--faint);font-size:11px}
-.arr{font:400 22px var(--sans);color:var(--faint)}
-.anim{padding:40px 32px}
-.anim svg{max-width:640px}
-.anim .on{fill:var(--site-fg)}
-.mvrest{fill:var(--site-fg);stroke:var(--site-fg);stroke-width:4}
-.mvbar{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 24px}
-.st{transition:color .25s}
-.st.now{color:var(--fg)}
-@media (prefers-reduced-motion: reduce){.st{transition:none}}
-.steps{display:flex;justify-content:center;gap:24px;font-family:var(--mono);font-size:12px;color:var(--faint)}
-@media (max-width:560px){.frow{gap:4px}.fbox{padding:10px 6px}.arr{font-size:16px}}
+.mono{font-family:var(--mono);font-size:.92em}
+section{display:grid;gap:16px}
+.hero{background:var(--site-bg);border-radius:14px;padding:clamp(40px,8vw,88px) 24px;display:grid;place-items:center;border:1px solid var(--line)}
+.hero svg{width:min(560px,100%);height:auto;display:block}
+.on{fill:var(--site-fg)}
+.paper .on{fill:var(--paper-ink)}
+.cut{fill:var(--cut)}
+.dm{stroke:var(--measure);stroke-width:9;fill:none}
+.dt{fill:var(--measure);font:500 96px var(--mono)}
+.steps{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);gap:12px;align-items:start}
+.step{display:grid;gap:10px;min-width:0}
+.tile{background:var(--site-bg);border-radius:10px;padding:26px 18px;display:grid;place-items:center;border:1px solid var(--line)}
+.tile svg{width:100%;height:auto;display:block}
+.step .n{font-family:var(--mono);font-size:11px;color:var(--faint)}
+.step b{font-size:15px;font-weight:600}
+.step p{font-size:13.5px;line-height:1.5}
+.arrow{align-self:center;margin-top:-70px;color:var(--faint);font-size:22px}
+@media (max-width:760px){.steps{grid-template-columns:1fr}.arrow{display:none}}
+.sys{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.card{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel);display:grid}
+.card .art{display:grid;grid-template-columns:1fr 1fr}
+.card .art>div{display:grid;place-items:center;padding:34px 18px}
+.card .art .dark{background:var(--site-bg)}
+.card .art .paper{background:var(--paper)}
+.card .art svg{height:64px;width:auto;max-width:100%;display:block}
+.card .meta{padding:14px 16px;display:grid;gap:3px;border-top:1px solid var(--line)}
+.card .meta b{font-size:15px;font-weight:600}
+.card .meta span{font-size:13.5px;color:var(--muted);line-height:1.5}
+.tag{justify-self:start;font-family:var(--mono);font-size:11px;padding:2px 8px;border:1px solid var(--line);border-radius:99px;color:var(--muted);margin-bottom:4px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.facts div{background:var(--panel);padding:14px 16px;display:grid;gap:2px}
+.facts b{font-family:var(--mono);font-weight:500;font-size:19px;font-variant-numeric:tabular-nums}
+.facts span{font-size:13px;color:var(--muted)}
+.ramp{background:var(--site-bg);border:1px solid var(--line);border-radius:12px;padding:30px 26px;display:flex;flex-wrap:wrap;align-items:flex-end;gap:26px 40px}
+.ramp figure{margin:0;display:grid;gap:8px;justify-items:start}
+.ramp svg{display:block;width:auto}
+.ramp figcaption{font-family:var(--mono);font-size:11px;color:#71717a}
+.reads{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px}
+.read{border-top:2px solid var(--line);padding-top:12px;display:grid;gap:4px}
+.read.primary{border-top-color:var(--fg)}
+.read b{font-size:22px;font-weight:700;letter-spacing:-.01em}
+.read span{font-size:13.5px;color:var(--muted)}
+.read .k{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:.04em}
 </style>
 
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <!-- Inter Bold A, crossbar removed: the only source shape -->
+  <path id="L" d="M0 1490H337L567 771C612 621 656 444 706 239C758 442 805 618 853 771L1092 1490H1431L909 0H509Z"/>
+  <!-- V/A monogram: V is the A rotated 180°, slash is the A's left leg as an even bar -->
+  <g id="VA"><use href="#L" transform="translate(1431 1490) scale(-1 -1)"/><path d="M1274 1490H1611L2120 0H1783Z"/><use href="#L" x="1963"/></g>
+  <!-- /A compact mark: the monogram cropped at the slash, so it reuses #VA with a viewBox starting at 1274 -->
+</defs></svg>
+
 <div class="wrap">
   <header>
-    <h2>withartifact.io · logo</h2>
-    <h1>The WA mark, taken apart</h1>
-    <p>The original mark, the one used before #27, is cropped from <strong>"WA" set in Inter Bold with Inter's own kerning</strong>, at 2048 units per em. I shaped the word with HarfBuzz against Inter 4.1 and matched the outlines point by point. The slash is the W's last stroke and the Λ is the A with its crossbar cut out. The whole crop is shifted 1341 units left.</p>
+    <span class="eyebrow">With Artifact · identity</span>
+    <h1>The WA monogram</h1>
+    <p>Inter Bold "WA" with two strokes taken out, one from the W and the A's crossbar, then every stroke aligned to the A's angles. What's left is a W and an A that share one rhythm.</p>
   </header>
 
-  <section id="system">
-    <h2>Logo system · three versions</h2>
-    <p style="max-width:68ch">The W is Inter Bold's own outline. Only its last stroke changes: it becomes the parallel bar, leaned to the A's 18.86°. The W's third stroke ends where the bar's edge crosses the shared foot, along Inter's own curve. Each version is a crop or a recolor of the same drawing, and the primary mark sits in the same coordinates in all three.</p>
-    <div class="rules">
-      <div><b>18.86°</b><span>The bar's lean, matched to the A's outer leg. The first three W strokes keep Inter's 15.06°</span></div>
-      <div><b>334</b><span>One stroke width, from Inter's W, horizontal</span></div>
-      <div><b>352</b><span>One gap, Inter's kerned W–A spacing, now constant top to bottom</span></div>
-      <div><b>x = 0</b><span>Where the primary mark is cropped. Its coordinates are identical in all three</span></div>
-    </div>
-    <div class="sys">
-      <article class="ver">
-        <div class="meta"><span class="k">01 · Primary</span><h3>Adjusted mark</h3><span class="tag cur" style="justify-self:start">live since #27</span>
-          <p>The bar and the Λ. It goes on the site, the favicon and the app icon. The other two versions build outward from it.</p>
-          <div class="row"><span class="tag">2117 × 1490</span><span class="tag">2 paths</span></div></div>
-        <div class="site"><svg viewBox="0 0 2117 1490" role="img" aria-label="Primary mark"><path class="on" d="M0 1490H334L843 0H509Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/></svg></div>
-      </article>
-      <article class="ver">
-        <div class="meta"><span class="k">02 · Mark in context</span><h3>Shaded W</h3>
-          <p>The full initials, with the mark at full strength and the rest of the W stepped back. It shows where the mark comes from. Good for an about page, a splash, or the first time the mark appears.</p>
-          <div class="shades" role="group" aria-label="Shade for the rest of the W">
-            <button type="button" id="s2-700" data-c="#3f3f46" aria-pressed="false"><i class="chip" style="background:#3f3f46"></i>700</button>
-            <button type="button" id="s2-600" data-c="#52525b" aria-pressed="true"><i class="chip" style="background:#52525b"></i>600</button>
-            <button type="button" id="s2-500" data-c="#71717a" aria-pressed="false"><i class="chip" style="background:#71717a"></i>500</button>
-          </div></div>
-        <div class="site"><svg viewBox="-1292 0 3409 1490" role="img" aria-label="Initials with shaded W"><path class="off" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H0L134 1099C111 973 88 845 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"/><path class="on" d="M0 1490H334L843 0H509Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/></svg></div>
-      </article>
-      <article class="ver">
-        <div class="meta"><span class="k">03 · Initials</span><h3>WA, one color</h3>
-          <p>The same drawing in one color, so it reads as initials. Use it where the mark needs to say the name: social avatars, the footer, documents.</p>
-          <div class="row"><button type="button" id="xbar" aria-pressed="false">Add crossbar</button></div></div>
-        <div class="site"><svg viewBox="-1292 0 3409 1490" role="img" aria-label="WA initials"><path class="on" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H334L843 0H509L134 1099C111 973 88 845 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/><path class="on xb" hidden d="M1134 1144H1663L1584 905H1210Z"/></svg></div>
-      </article>
-    </div>
+  <div class="hero"><svg viewBox="0 0 3394 1490" role="img" aria-label="WA monogram"><use href="#VA" class="on"/></svg></div>
 
-    <div class="flows">
-      <div class="flow">
-        <div class="fhead"><b>Left to right</b><span>The mark grows into the initials. The W fills in behind the bar and the A never moves.</span></div>
-        <div class="frow"><figure class="fr"><div class="fbox"><svg viewBox="-1292 0 3409 1490" role="img" aria-label="Mark"><path class="on" d="M0 1490H334L843 0H509Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/></svg></div><figcaption><span class="mono">01</span> Mark</figcaption></figure><span class="arr" aria-hidden="true">→</span><figure class="fr"><div class="fbox"><svg viewBox="-1292 0 3409 1490" role="img" aria-label="Shaded W"><path class="off" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H0L134 1099C111 973 88 845 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"/><path class="on" d="M0 1490H334L843 0H509Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/></svg></div><figcaption><span class="mono">02</span> Shaded W</figcaption></figure><span class="arr" aria-hidden="true">→</span><figure class="fr"><div class="fbox"><svg viewBox="-1292 0 3409 1490" role="img" aria-label="Initials"><path class="on" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H334L843 0H509L134 1099C111 973 88 845 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/></svg></div><figcaption><span class="mono">03</span> Initials</figcaption></figure></div>
-      </div>
-      <div class="flow">
-        <div class="fhead"><b>Right to left</b><span>The same build read the other way. The W extends leftward out of the bar, which is the way the word was cropped.</span></div>
-        <div class="frow"><figure class="fr"><div class="fbox"><svg viewBox="-1292 0 3409 1490" role="img" aria-label="Initials"><path class="on" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H334L843 0H509L134 1099C111 973 88 845 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/></svg></div><figcaption><span class="mono">03</span> Initials</figcaption></figure><span class="arr" aria-hidden="true">←</span><figure class="fr"><div class="fbox"><svg viewBox="-1292 0 3409 1490" role="img" aria-label="Shaded W"><path class="off" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H0L134 1099C111 973 88 845 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"/><path class="on" d="M0 1490H334L843 0H509Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/></svg></div><figcaption><span class="mono">02</span> Shaded W</figcaption></figure><span class="arr" aria-hidden="true">←</span><figure class="fr"><div class="fbox"><svg viewBox="-1292 0 3409 1490" role="img" aria-label="Mark"><path class="on" d="M0 1490H334L843 0H509Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/></svg></div><figcaption><span class="mono">01</span> Mark</figcaption></figure></div>
-      </div>
-      <div class="flow">
-        <div class="fhead"><b>In motion</b><span>Start from Inter's WA. The W's last stroke shifts to the A's angle, then the rest of the W fades out and leaves the mark. It loops every 10 seconds.</span></div>
-        <div class="site anim"><svg id="mv" viewBox="-1292 0 3409 1490" role="img" aria-label="The W's last stroke shifts, then the rest of the W fades, leaving the mark">
-          <path class="mvrest" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H0L134 1099C111 973 88 845 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"><animate attributeName="opacity" values="1;1;1;0;0;1;1" keyTimes="0;.15;.45;.7;.85;.95;1" calcMode="spline" keySplines=".45 0 .2 1;.45 0 .2 1;.45 0 .2 1;.45 0 .2 1;.45 0 .2 1;.45 0 .2 1" dur="10s" repeatCount="indefinite"/></path>
-          <path class="on" d="M0 1490H334L735 0H401Z"><animate attributeName="d" values="M0 1490H334L735 0H401Z;M0 1490H334L735 0H401Z;M0 1490H334L843 0H509Z;M0 1490H334L843 0H509Z;M0 1490H334L843 0H509Z;M0 1490H334L735 0H401Z;M0 1490H334L735 0H401Z" keyTimes="0;.15;.35;.45;.85;.95;1" calcMode="spline" keySplines=".45 0 .2 1;.45 0 .2 1;.45 0 .2 1;.45 0 .2 1;.45 0 .2 1;.45 0 .2 1" dur="10s" repeatCount="indefinite"/></path>
-          <path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/>
+  <section>
+    <h2>How it's made</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="tile"><svg viewBox="-1292 0 3409 1490" role="img" aria-label="WA set in Inter Bold">
+          <path class="on" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H334L735 0H401L228 733C198 869 172 1029 148 1181C121 1029 94 869 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"/>
+          <path class="on" d="M686 1490H1023L1134 1144H1663L1778 1490H2117L1595 0H1195ZM1210 905 1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1584 905Z"/>
         </svg></div>
-        <div class="mvbar">
-          <div class="steps" id="mvsteps" aria-hidden="true"><span class="st" data-a="0" data-b=".15">01 Inter W</span><span class="st" data-a=".15" data-b=".45">02 Last stroke shifts</span><span class="st" data-a=".45" data-b=".7">03 W fades</span><span class="st" data-a=".7" data-b=".95">04 Mark</span></div>
-          <button type="button" id="mvpause" aria-pressed="false">Pause</button>
-        </div>
+        <span class="n">01</span><b>Set "WA" in Inter Bold</b>
+        <p>Inter's own outlines and its own W–A spacing.</p>
       </div>
-    </div>
-    <div class="strips">
-      <div class="strip dark"><figure style="margin:0"><svg style="height:56px" viewBox="0 0 2117 1490" role="img" aria-label="Primary"><path class="on" d="M0 1490H334L843 0H509Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/></svg></figure><figure style="margin:0"><svg style="height:56px" viewBox="-1292 0 3409 1490" role="img" aria-label="In context"><path class="off" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H0L134 1099C111 973 88 845 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"/><path class="on" d="M0 1490H334L843 0H509Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/></svg></figure><figure style="margin:0"><svg style="height:56px" viewBox="-1292 0 3409 1490" role="img" aria-label="Initials"><path class="on" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H334L843 0H509L134 1099C111 973 88 845 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/><path class="on xb" hidden d="M1134 1144H1663L1584 905H1210Z"/></svg></figure><figure style="margin:0"><svg style="height:28px" viewBox="0 0 2117 1490" role="img" aria-label="Primary"><path class="on" d="M0 1490H334L843 0H509Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/></svg></figure><figure style="margin:0"><svg style="height:28px" viewBox="-1292 0 3409 1490" role="img" aria-label="In context"><path class="off" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H0L134 1099C111 973 88 845 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"/><path class="on" d="M0 1490H334L843 0H509Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/></svg></figure><figure style="margin:0"><svg style="height:28px" viewBox="-1292 0 3409 1490" role="img" aria-label="Initials"><path class="on" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H334L843 0H509L134 1099C111 973 88 845 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/><path class="on xb" hidden d="M1134 1144H1663L1584 905H1210Z"/></svg></figure></div>
-      <div class="strip light"><figure style="margin:0"><svg style="height:56px" viewBox="0 0 2117 1490" role="img" aria-label="Primary"><path class="on" d="M0 1490H334L843 0H509Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/></svg></figure><figure style="margin:0"><svg style="height:56px" viewBox="-1292 0 3409 1490" role="img" aria-label="In context"><path class="off" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H0L134 1099C111 973 88 845 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"/><path class="on" d="M0 1490H334L843 0H509Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/></svg></figure><figure style="margin:0"><svg style="height:56px" viewBox="-1292 0 3409 1490" role="img" aria-label="Initials"><path class="on" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H334L843 0H509L134 1099C111 973 88 845 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/><path class="on xb" hidden d="M1134 1144H1663L1584 905H1210Z"/></svg></figure><figure style="margin:0"><svg style="height:28px" viewBox="0 0 2117 1490" role="img" aria-label="Primary"><path class="on" d="M0 1490H334L843 0H509Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/></svg></figure><figure style="margin:0"><svg style="height:28px" viewBox="-1292 0 3409 1490" role="img" aria-label="In context"><path class="off" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H0L134 1099C111 973 88 845 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"/><path class="on" d="M0 1490H334L843 0H509Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/></svg></figure><figure style="margin:0"><svg style="height:28px" viewBox="-1292 0 3409 1490" role="img" aria-label="Initials"><path class="on" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H334L843 0H509L134 1099C111 973 88 845 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/><path class="on xb" hidden d="M1134 1144H1663L1584 905H1210Z"/></svg></figure></div>
-    </div>
-    <p style="max-width:68ch">Only the last stroke is altered, so the W keeps Inter's curved inner points and its proportions. The changed bar adds 108 units at the cap, which makes the W 2135 units wide against Inter's 2027. The one place the change shows is the last stroke: it leans 3.8° more than the three before it. That difference is what makes it read as the mark inside the initials.</p>
-  </section>
-
-  <section id="wa">
-    <h2>Earlier study · WA at Inter's angle</h2>
-    <p style="max-width:68ch">The full word with the logo part at full brightness. The rest of the W keeps Inter's own outline, in a lighter shade. Its third stroke ends where the logo bar's parallel edge cuts through the shared foot, and nothing else changes. The A has its curves restored. The background is the site's.</p>
-    <div class="shades" role="group" aria-label="Shade for the rest of the W">
-      <span>Shade</span>
-      <button type="button" id="sh800" data-c="#27272a" aria-pressed="false"><i class="chip" style="background:#27272a"></i>zinc-800</button>
-      <button type="button" id="sh700" data-c="#3f3f46" aria-pressed="false"><i class="chip" style="background:#3f3f46"></i>zinc-700</button>
-      <button type="button" id="sh600" data-c="#52525b" aria-pressed="true"><i class="chip" style="background:#52525b"></i>zinc-600</button>
-      <button type="button" id="sh500" data-c="#71717a" aria-pressed="false"><i class="chip" style="background:#71717a"></i>zinc-500</button>
-      <button type="button" id="sh400" data-c="#a1a1aa" aria-pressed="false"><i class="chip" style="background:#a1a1aa"></i>zinc-400</button>
-    </div>
-    <div class="site">
-      <svg viewBox="-1292 0 3409 1490" role="img" aria-label="WA with the W's last stroke and the A highlighted">
-        <path class="off" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H0L122 1036C103 930 84 826 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"/>
-        <path class="on" d="M0 1490 334 1490 735 0 401 0Z"/>
-        <path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/>
-      </svg>
-    </div>
-    <div class="pair">
-      <figure>
-        <div class="site" style="padding:32px 24px"><svg viewBox="-1292 0 3409 1490" role="img" aria-label="Bar at the W's angle">
-          <path class="off" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H0L122 1036C103 930 84 826 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"/><path class="on" d="M0 1490 334 1490 735 0 401 0Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/></svg></div>
-        <figcaption><b>Original bar, at the W's angle.</b> The bar runs parallel at 15.06°, and the rest of the W keeps the same lean. This is the version above.</figcaption>
-      </figure>
-      <figure>
-        <div class="site" style="padding:32px 24px"><svg viewBox="-1292 0 3409 1490" role="img" aria-label="Bar at the A's angle">
-          <path class="off" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H0L134 1099C111 973 88 845 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"/><path class="on" d="M0 1490H334L843 0H509Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/></svg></div>
-        <figcaption><b>Bar at the A's angle.</b> Leaned to 18.86° so the gap to the A stays at 352. Against the full W it visibly breaks from the other three strokes.</figcaption>
-      </figure>
+      <span class="arrow" aria-hidden="true">→</span>
+      <div class="step">
+        <div class="tile"><svg viewBox="-1292 0 3409 1490" role="img" aria-label="WA with the W's third stroke and the A's crossbar marked for removal">
+          <path class="on" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H334L735 0H401L228 733C198 869 172 1029 148 1181C121 1029 94 869 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"/>
+          <path class="on" d="M686 1490H1023L1134 1144H1663L1778 1490H2117L1595 0H1195ZM1210 905 1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1584 905Z"/>
+          <path class="cut" d="M-278 0H-120L61 733C94 869 121 1029 148 1181L160 1490H-14L-212 728C-239 621 -259 500 -280 372Z"/>
+          <path class="cut" d="M1134 1144H1663L1584 905H1210Z"/>
+        </svg></div>
+        <span class="n">02</span><b>Take out two strokes</b>
+        <p>The W's third stroke and the A's crossbar, shown in red.</p>
+      </div>
+      <span class="arrow" aria-hidden="true">→</span>
+      <div class="step">
+        <div class="tile"><svg viewBox="0 0 3394 1490" role="img" aria-label="WA monogram"><use href="#VA" class="on"/></svg></div>
+        <span class="n">03</span><b>Align to the A</b>
+        <p>The V is the A turned upside down. The slash is the A's left leg as an even bar, at the same 18.86° and the same 337 width. Every top space is 352.</p>
+      </div>
     </div>
   </section>
 
   <section>
-    <h2>Construction</h2>
-    <div class="plate construct">
-      <svg viewBox="-1420 -200 3640 1860" role="img" aria-label="Logo overlaid on Inter Bold WA outlines">
-        <line class="guide" x1="-1420" y1="1490" x2="2220" y2="1490"/>
-        <line class="guide" x1="-1420" y1="0" x2="2220" y2="0"/>
-        <text class="lblm" x="2210" y="1560" text-anchor="end">baseline</text>
-        <text class="lblm" x="2210" y="-30" text-anchor="end">cap 1490</text>
-        <line class="guide" x1="0" y1="-120" x2="0" y2="1620" style="stroke:var(--mark2)"/>
-        <text class="lbl" x="-20" y="-120" text-anchor="end">crop x = 1341</text>
-        <path class="ghostfill" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H334L735 0H401L228 733C198 869 172 1029 148 1181C121 1029 94 869 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"/>
-        <path class="ink" d="M0 1490 334 1490 735 0 401 0Z"/>
-        <path class="ink" d="M686 1490 1023 1490 1134 1144 1210 905 1253 771 1287 659 1355 393 1392 239 1431 391 1503 657 1539 771 1584 905 1663 1144 1778 1490 2117 1490 1595 0 1195 0Z"/>
-        <path class="cut" d="M1134 1144H1663L1584 905H1210Z"/>
-        <path class="ghost" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H334L735 0H401L228 733C198 869 172 1029 148 1181C121 1029 94 869 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"/>
-        <path class="ghost" d="M686 1490H1023L1134 1144H1663L1778 1490H2117L1595 0H1195ZM1210 905 1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1584 905Z"/>
-        <circle cx="0" cy="1490" r="22" style="fill:var(--mark)"/>
-        <g class="node"><circle cx="1287" cy="659" r="16"/><circle cx="1355" cy="393" r="16"/><circle cx="1431" cy="391" r="16"/><circle cx="1503" cy="657" r="16"/><circle cx="1392" cy="239" r="16"/></g>
-        <path class="dim" d="M334 1400H686M334 1380v40M686 1380v40"/>
-        <text class="lbl" x="510" y="1360" text-anchor="middle">352</text>
-        <path class="dim" d="M735 90H1195M735 70v40M1195 70v40"/>
-        <text class="lbl" x="965" y="190" text-anchor="middle">460</text>
-      </svg>
-      <div class="legend" style="margin-top:16px">
-        <span><i class="sw" style="background:var(--fg)"></i>Original mark</span>
-        <span><i class="sw" style="border:2px solid var(--ghost)"></i>Inter Bold outline</span>
-        <span><i class="sw" style="background:var(--ghost);opacity:.55"></i>Part of the W cropped away</span>
-        <span><i class="sw" style="background:var(--mark)"></i>Crossbar removed</span>
-        <span><i class="sw" style="background:var(--mark);border-radius:99px;width:10px"></i>Invented corner</span>
-        <span><i class="sw" style="background:var(--mark2)"></i>Curve flattened to polyline nodes</span>
-      </div>
-    </div>
+    <h2>Geometry</h2>
+    <div class="hero" style="padding-block:clamp(40px,7vw,72px)"><svg viewBox="0 -240 3394 1770" role="img" aria-label="Monogram with its two equal top spaces measured">
+      <use href="#VA" class="on"/>
+      <path class="dm" d="M1431 -60H1783M1431 -100v80M1783 -100v80"/><text class="dt" x="1607" y="-110" text-anchor="middle">352</text>
+      <path class="dm" d="M2120 -60H2472M2120 -100v80M2472 -100v80"/><text class="dt" x="2296" y="-110" text-anchor="middle">352</text>
+    </svg></div>
     <div class="facts">
-      <div class="fact"><b>1978</b><span>A's position in shaped "WA". The W advances 2125 and Inter kerns the pair by −147. 1978 − 1341 = 637, where the A sits in the logo.</span></div>
-      <div class="fact"><b>3 of 4</b><span>Slash points taken from the W. The top edge (334 wide) and the right foot are Inter's. The bottom-left corner at 0 is new, because in Inter that spot is where strokes three and four meet.</span></div>
-      <div class="fact"><b>334 held</b><span>The W's last stroke tapers from 334 at the cap to about 310 at mid-height, then merges into the bottom point of the W. The logo keeps 334 all the way down, so the bar is a little heavier than Inter's below the middle.</span></div>
-      <div class="fact"><b>15.06° vs 18.86°</b><span>The W stroke leans less than the A's leg. Inter's own slash happens to share the W's angle, which is why it looked like a slash at first.</span></div>
-      <div class="fact"><b>352 → 460</b><span>Gap from baseline to cap. This is Inter's kerned W–A spacing exactly, and it opens 31% toward the top.</span></div>
-      <div class="fact"><b>±2 units</b><span>How far the A's polyline nodes sit from Inter's real curves. They're on the curve but the curve is gone.</span></div>
+      <div><b>1</b><span>Source shape: Inter Bold's A without its crossbar</span></div>
+      <div><b>337</b><span>Slash width, the A's leg at the baseline</span></div>
+      <div><b>18.86°</b><span>Every <span class="mono">/</span>, the A's left leg</span></div>
+      <div><b>19.31°</b><span>Every <span class="mono">\</span>, the A's right leg</span></div>
+      <div><b>352</b><span>Both top spaces, constant to the baseline</span></div>
     </div>
   </section>
 
   <section>
-    <h2>Variants</h2>
-    <p style="max-width:68ch">Each one changes one thing from the original mark. All paths share the 2117 × 1490 box unless the card says otherwise, so you can swap them into <code>index.html</code> without touching the layout.</p>
-    <div class="grid" id="grid"></div>
+    <h2>The system</h2>
+    <div class="sys">
+      <div class="card">
+        <div class="art"><div class="dark"><svg viewBox="0 0 3394 1490" role="img" aria-label="Monogram on dark"><use href="#VA" class="on"/></svg></div>
+          <div class="paper"><svg viewBox="0 0 3394 1490" role="img" aria-label="Monogram on light"><use href="#VA" class="on"/></svg></div></div>
+        <div class="meta"><span class="tag">primary</span><b>Monogram · WA</b><span>The site header, splash screens, print. Anywhere with room for the full initials.</span></div>
+      </div>
+      <div class="card">
+        <div class="art"><div class="dark"><svg viewBox="1274 0 2120 1490" role="img" aria-label="Compact mark on dark"><use href="#VA" class="on"/></svg></div>
+          <div class="paper"><svg viewBox="1274 0 2120 1490" role="img" aria-label="Compact mark on light"><use href="#VA" class="on"/></svg></div></div>
+        <div class="meta"><span class="tag">compact</span><b>Mark · /A</b><span>Social avatars, the favicon, app icons. It's the monogram with the V cropped off, an exact crop with nothing redrawn.</span></div>
+      </div>
+    </div>
   </section>
 
   <section>
     <h2>At size</h2>
-    <p style="max-width:68ch">The original mark next to the parallel-slash variant, which shipped in #27. The widening gap gets harder to see as the mark shrinks. At favicon size the difference is a pixel or less.</p>
-    <div class="plate ramp" id="ramp"></div>
+    <div class="ramp" id="ramp"></div>
   </section>
 
   <section>
-    <h2>Recommended path data</h2>
-    <p style="max-width:68ch">This is the original shape with the curves restored. It drops 6 nodes. Every point is an Inter Bold point except the squared-off corner at the foot of the stroke. It's a safe change to make whether or not you take any of the variants.</p>
-    <div class="paths">
-      <pre id="rec"></pre>
-      <div><button type="button" id="copyrec">Copy SVG</button> <span id="copied" class="mono" style="color:var(--faint)"></span></div>
+    <h2>Readings</h2>
+    <div class="reads">
+      <div class="read primary"><span class="k">PRIMARY</span><b>WA</b><span>A monogram of the initials. This is how it's presented.</span></div>
+      <div class="read"><span class="k">SECOND LOOK</span><b>w/ A</b><span>The V and slash work as an abstract "w/", shorthand for "with". So it reads as With Artifact.</span></div>
+      <div class="read"><span class="k">BONUS</span><b>via A</b><span>Read as letters it's "VIA", which means much the same as "with".</span></div>
     </div>
   </section>
 </div>
 
 <script>
-const SLASH = "M0 1490 334 1490 735 0 401 0Z";
-const A_CUR = "M686 1490 1023 1490 1134 1144 1210 905 1253 771 1287 659 1355 393 1392 239 1431 391 1503 657 1539 771 1584 905 1663 1144 1778 1490 2117 1490 1595 0 1195 0Z";
-const A_EXACT = "M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z";
-const A_FULL = "M686 1490H1023L1134 1144H1663L1778 1490H2117L1595 0H1195ZM1210 905 1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1584 905Z";
-const V = [
-  {name:"Original", tag:"before #27", cur:true, vb:"0 0 2117 1490", paths:[SLASH, A_CUR],
-   note:"The W's last stroke, squared off at the foot, then Inter's kerned A with the crossbar removed and the counter flattened to straight segments."},
-  {name:"Exact curves", tag:"10 nodes", vb:"0 0 2117 1490", paths:[SLASH, A_EXACT],
-   note:"Same shape, with Inter's two Bézier curves restored at the apex. The inner leg points were collinear, so they merge into one segment."},
-  {name:"Parallel slash", tag:"18.86°", vb:"0 0 2117 1490", paths:["M0 1490H334L843 0H509Z", A_EXACT],
-   note:"The stroke leans at the A's leg angle, so the gap holds at 352 all the way up. It looks tidier, but it drops the W's angle, which is the link back to the word."},
-  {name:"Crossbar kept", tag:"real A", vb:"0 0 2117 1490", paths:[SLASH, A_FULL],
-   note:"Inter's A untouched. It reads as a cropped word, but the counter clogs at small sizes."},
-  {name:"Full WA", tag:"typeset", vb:"-1342 0 3459 1490", paths:["M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H334L735 0H401L228 733C198 869 172 1029 148 1181C121 1029 94 869 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z", A_FULL],
-   note:"The source word as Inter Bold and HarfBuzz set it, before the crop. The logo is everything right of x = 1341."},
-  {name:"WA, no crossbar", tag:"wide", vb:"-1342 0 3459 1490", paths:["M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H334L735 0H401L228 733C198 869 172 1029 148 1181C121 1029 94 869 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z", A_EXACT],
-   note:"The whole W kept and the A opened up. The four diagonals of the W carry into the Λ as one rhythm."},
-];
-const NS="http://www.w3.org/2000/svg";
-function mark(v, h){
-  const s=document.createElementNS(NS,"svg");
-  s.setAttribute("viewBox",v.vb); s.setAttribute("role","img"); s.setAttribute("aria-label",v.name);
-  if(h){s.style.height=h+"px";s.style.width="auto";}
-  v.paths.forEach((d,i)=>{const p=document.createElementNS(NS,"path");p.setAttribute("d",d);p.setAttribute("class","ink");
-    if(i===0&&v.shift)p.setAttribute("transform",`translate(0 ${v.shift})`);s.appendChild(p);});
-  return s;
-}
-function svgText(v){
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${v.vb}" fill="currentColor">\n`+
-    v.paths.map((d,i)=>`  <path${i===0&&v.shift?` transform="translate(0 ${v.shift})"`:""} d="${d}"/>`).join("\n")+"\n</svg>";
-}
-async function copy(text, btn){
-  try{await navigator.clipboard.writeText(text);btn.textContent="Copied";}
-  catch(e){btn.textContent="Select the text below";}
-  setTimeout(()=>btn.textContent=btn.dataset.l,1600);
-}
-const grid=document.getElementById("grid");
-V.forEach((v,i)=>{
-  const c=document.createElement("article"); c.className="plate card";
-  const art=document.createElement("div"); art.className="art"; art.appendChild(mark(v)); c.appendChild(art);
-  const t=document.createElement("div"); t.className="txt";
-  t.innerHTML=`<h3>${v.name}</h3><p>${v.note}</p>`; c.appendChild(t);
-  const f=document.createElement("div"); f.className="foot";
-  const tag=document.createElement("span"); tag.className="tag"+(v.cur?" cur":""); tag.textContent=v.tag;
-  const b=document.createElement("button"); b.type="button"; b.id="copy"+i; b.textContent=b.dataset.l="Copy SVG";
-  b.addEventListener("click",()=>copy(svgText(v),b));
-  f.append(tag,b); c.appendChild(f); grid.appendChild(c);
-});
 const ramp=document.getElementById("ramp");
-[112,64,32,24,16].forEach(h=>{
-  [V[0],V[2]].forEach(v=>{
-    const fig=document.createElement("figure"); fig.appendChild(mark(v,h));
-    const cap=document.createElement("figcaption"); cap.textContent=`${h}px · ${v===V[0]?"original":"parallel"}`;
-    fig.appendChild(cap); ramp.appendChild(fig);
-  });
+[[96,"monogram"],[96,"mark"],[48,"monogram"],[48,"mark"],[24,"monogram"],[24,"mark"],[16,"mark"]].forEach(([h,k])=>{
+  const vb=k==="monogram"?"0 0 3394 1490":"1274 0 2120 1490", id="#VA";
+  const f=document.createElement("figure");
+  f.innerHTML=`<svg viewBox="${vb}" style="height:${h}px" role="img" aria-label="${k} at ${h}px"><use href="${id}" style="fill:#f4f4f5"/></svg><figcaption>${k} · ${h}px</figcaption>`;
+  ramp.appendChild(f);
 });
-function setShade(c){
-  document.documentElement.style.setProperty("--shade",c);
-  document.querySelectorAll(".shades button").forEach(x=>x.setAttribute("aria-pressed",x.dataset.c===c?"true":"false"));
-}
-document.querySelectorAll(".shades button").forEach(b=>b.addEventListener("click",()=>{
-  setShade(b.dataset.c); try{localStorage.setItem("shadeC",b.dataset.c)}catch(e){}
-}));
-try{const s=localStorage.getItem("shadeC");if(s)setShade(s)}catch(e){}
-const xb=document.getElementById("xbar");
-xb.addEventListener("click",()=>{const on=xb.getAttribute("aria-pressed")!=="true";
-  xb.setAttribute("aria-pressed",String(on)); xb.textContent=on?"Remove crossbar":"Add crossbar";
-  document.querySelectorAll(".xb").forEach(p=>p.hidden=!on);});
-(function(){
-  const mv=document.getElementById("mv"), btn=document.getElementById("mvpause");
-  const steps=[...document.querySelectorAll("#mvsteps .st")];
-  let paused=false;
-  function setPaused(v){paused=v; v?mv.pauseAnimations():mv.unpauseAnimations();
-    btn.textContent=v?"Play":"Pause"; btn.setAttribute("aria-pressed",String(v));}
-  btn.addEventListener("click",()=>setPaused(!paused));
-  if(matchMedia("(prefers-reduced-motion: reduce)").matches){mv.setCurrentTime(5.8);setPaused(true);}
-  (function tick(){const f=(mv.getCurrentTime()%10)/10;
-    steps.forEach(s=>s.classList.toggle("now", f>=+s.dataset.a && f<+s.dataset.b || (s===steps[0]&&f>=.95)));
-    requestAnimationFrame(tick);})();
-})();
-const rec=svgText(V[1]); document.getElementById("rec").textContent=rec;
-const rb=document.getElementById("copyrec"); rb.dataset.l="Copy SVG"; rb.addEventListener("click",()=>copy(rec,rb));
 </script>
 
 </body>
