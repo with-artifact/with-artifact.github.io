@@ -139,7 +139,7 @@ pre{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:
   <header>
     <h2>withartifact.io · logo</h2>
     <h1>The WA mark, taken apart</h1>
-    <p>The current mark (<code>index.html</code>, <code>assets/favicon.svg</code>) is cropped from <strong>"WA" set in Inter Bold with Inter's own kerning</strong>, at 2048 units per em. I shaped the word with HarfBuzz against Inter 4.1 and matched the outlines point by point. The slash is the W's last stroke and the Λ is the A with its crossbar cut out. The whole crop is shifted 1341 units left.</p>
+    <p>The original mark, the one used before #27, is cropped from <strong>"WA" set in Inter Bold with Inter's own kerning</strong>, at 2048 units per em. I shaped the word with HarfBuzz against Inter 4.1 and matched the outlines point by point. The slash is the W's last stroke and the Λ is the A with its crossbar cut out. The whole crop is shifted 1341 units left.</p>
   </header>
 
   <section id="system">
@@ -153,7 +153,7 @@ pre{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:
     </div>
     <div class="sys">
       <article class="ver">
-        <div class="meta"><span class="k">01 · Primary</span><h3>Adjusted mark</h3>
+        <div class="meta"><span class="k">01 · Primary</span><h3>Adjusted mark</h3><span class="tag cur" style="justify-self:start">live since #27</span>
           <p>The bar and the Λ. It goes on the site, the favicon and the app icon. The other two versions build outward from it.</p>
           <div class="row"><span class="tag">2117 × 1490</span><span class="tag">2 paths</span></div></div>
         <div class="site"><svg viewBox="0 0 2117 1490" role="img" aria-label="Primary mark"><path class="on" d="M0 1490H334L843 0H509Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/></svg></div>
@@ -225,9 +225,9 @@ pre{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:
     </div>
     <div class="pair">
       <figure>
-        <div class="site" style="padding:32px 24px"><svg viewBox="-1292 0 3409 1490" role="img" aria-label="Shipped bar">
+        <div class="site" style="padding:32px 24px"><svg viewBox="-1292 0 3409 1490" role="img" aria-label="Bar at the W's angle">
           <path class="off" d="M-892 1490H-543L-346 728C-317 615 -299 496 -280 372C-259 500 -239 621 -212 728L-14 1490H0L122 1036C103 930 84 826 61 733L-120 0H-437L-619 733C-653 870 -679 1032 -706 1185C-730 1032 -756 870 -786 733L-959 0H-1292Z"/><path class="on" d="M0 1490 334 1490 735 0 401 0Z"/><path class="on" d="M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z"/></svg></div>
-        <figcaption><b>Shipped bar, at the W's angle.</b> The bar runs parallel at 15.06°, and the rest of the W keeps the same lean. This is the version above.</figcaption>
+        <figcaption><b>Original bar, at the W's angle.</b> The bar runs parallel at 15.06°, and the rest of the W keeps the same lean. This is the version above.</figcaption>
       </figure>
       <figure>
         <div class="site" style="padding:32px 24px"><svg viewBox="-1292 0 3409 1490" role="img" aria-label="Bar at the A's angle">
@@ -261,7 +261,7 @@ pre{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:
         <text class="lbl" x="965" y="190" text-anchor="middle">460</text>
       </svg>
       <div class="legend" style="margin-top:16px">
-        <span><i class="sw" style="background:var(--fg)"></i>Logo as shipped</span>
+        <span><i class="sw" style="background:var(--fg)"></i>Original mark</span>
         <span><i class="sw" style="border:2px solid var(--ghost)"></i>Inter Bold outline</span>
         <span><i class="sw" style="background:var(--ghost);opacity:.55"></i>Part of the W cropped away</span>
         <span><i class="sw" style="background:var(--mark)"></i>Crossbar removed</span>
@@ -281,19 +281,19 @@ pre{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:
 
   <section>
     <h2>Variants</h2>
-    <p style="max-width:68ch">Each one changes one thing from the current mark. All paths share the 2117 × 1490 box unless the card says otherwise, so you can swap them into <code>index.html</code> without touching the layout.</p>
+    <p style="max-width:68ch">Each one changes one thing from the original mark. All paths share the 2117 × 1490 box unless the card says otherwise, so you can swap them into <code>index.html</code> without touching the layout.</p>
     <div class="grid" id="grid"></div>
   </section>
 
   <section>
     <h2>At size</h2>
-    <p style="max-width:68ch">The current mark next to the parallel-slash variant. The widening gap gets harder to see as the mark shrinks. At favicon size the difference is a pixel or less.</p>
+    <p style="max-width:68ch">The original mark next to the parallel-slash variant, which shipped in #27. The widening gap gets harder to see as the mark shrinks. At favicon size the difference is a pixel or less.</p>
     <div class="plate ramp" id="ramp"></div>
   </section>
 
   <section>
     <h2>Recommended path data</h2>
-    <p style="max-width:68ch">This is the current shape with the curves restored. It drops 6 nodes. Every point is an Inter Bold point except the squared-off corner at the foot of the stroke. It's a safe change to make whether or not you take any of the variants.</p>
+    <p style="max-width:68ch">This is the original shape with the curves restored. It drops 6 nodes. Every point is an Inter Bold point except the squared-off corner at the foot of the stroke. It's a safe change to make whether or not you take any of the variants.</p>
     <div class="paths">
       <pre id="rec"></pre>
       <div><button type="button" id="copyrec">Copy SVG</button> <span id="copied" class="mono" style="color:var(--faint)"></span></div>
@@ -307,7 +307,7 @@ const A_CUR = "M686 1490 1023 1490 1134 1144 1210 905 1253 771 1287 659 1355 393
 const A_EXACT = "M686 1490H1023L1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1778 1490H2117L1595 0H1195Z";
 const A_FULL = "M686 1490H1023L1134 1144H1663L1778 1490H2117L1595 0H1195ZM1210 905 1253 771C1298 621 1342 444 1392 239C1444 442 1491 618 1539 771L1584 905Z";
 const V = [
-  {name:"Current", tag:"shipped", cur:true, vb:"0 0 2117 1490", paths:[SLASH, A_CUR],
+  {name:"Original", tag:"before #27", cur:true, vb:"0 0 2117 1490", paths:[SLASH, A_CUR],
    note:"The W's last stroke, squared off at the foot, then Inter's kerned A with the crossbar removed and the counter flattened to straight segments."},
   {name:"Exact curves", tag:"10 nodes", vb:"0 0 2117 1490", paths:[SLASH, A_EXACT],
    note:"Same shape, with Inter's two Bézier curves restored at the apex. The inner leg points were collinear, so they merge into one segment."},
@@ -354,7 +354,7 @@ const ramp=document.getElementById("ramp");
 [112,64,32,24,16].forEach(h=>{
   [V[0],V[2]].forEach(v=>{
     const fig=document.createElement("figure"); fig.appendChild(mark(v,h));
-    const cap=document.createElement("figcaption"); cap.textContent=`${h}px · ${v===V[0]?"current":"parallel"}`;
+    const cap=document.createElement("figcaption"); cap.textContent=`${h}px · ${v===V[0]?"original":"parallel"}`;
     fig.appendChild(cap); ramp.appendChild(fig);
   });
 });
