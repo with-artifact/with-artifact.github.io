@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2120 1490" fill="currentColor" role="img" aria-label="With Artifact">
-  <path d="M0 1490 337 1490 846 0 509 0Z"/>
-  <path d="M1026 1490 1399 399 1781 1490 2120 1490 1598 0 1198 0 689 1490Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2300 1490" fill="currentColor" role="img" aria-label="With Artifact">
+  <path fill-opacity="0.3" d="M0 0H339L861 1490H522Z"/>
+  <path fill-opacity="0.3" d="M689 0H1028L1550 1490H1211Z"/>
+  <path d="M180 1490H517L1026 0H689Z"/>
+  <path d="M869 1490H1206L1579 399L1961 1490H2300L1778 0H1378Z"/>
 </svg>

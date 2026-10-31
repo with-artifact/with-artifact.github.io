@@ -1,7 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="With Artifact">
   <rect width="32" height="32" rx="6" fill="#09090b"/>
-  <g transform="translate(4.143 7.667) scale(0.011186)">
-    <path fill="#f4f4f5" d="M0 1490H337L846 0H509Z"/>
-    <path fill="#f4f4f5" d="M689 1490H1026L1256 771C1301 621 1345 444 1395 239C1447 442 1494 618 1542 771L1781 1490H2120L1598 0H1198Z"/>
+  <g transform="translate(4.160 8.330) scale(0.010296)">
+    <path fill="#52525b" d="M0 0H339L861 1490H522Z"/>
+    <path fill="#52525b" d="M689 0H1028L1550 1490H1211Z"/>
+    <path fill="#f4f4f5" d="M180 1490H517L1026 0H689Z"/>
+    <path fill="#f4f4f5" d="M869 1490H1206L1579 399L1961 1490H2300L1778 0H1378Z"/>
   </g>
 </svg>
