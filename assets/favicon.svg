@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="With Artifact">
   <rect width="32" height="32" rx="6" fill="#09090b"/>
-  <g transform="translate(4.160 8.330) scale(0.010296)">
+  <g transform="translate(4.160 9.315) scale(0.008973)">
     <path fill="#52525b" d="M0 0H339L861 1490H522Z"/>
     <path fill="#52525b" d="M689 0H1028L1550 1490H1211Z"/>
-    <path fill="#f4f4f5" d="M180 1490H517L1026 0H689Z"/>
-    <path fill="#f4f4f5" d="M869 1490H1206L1579 399L1961 1490H2300L1778 0H1378Z"/>
+    <path fill="#f4f4f5" d="M519 1490H856L1365 0H1028Z"/>
+    <path fill="#f4f4f5" d="M1208 1490H1545L1918 399L2300 1490H2639L2117 0H1717Z"/>
   </g>
 </svg>
